@@ -24,7 +24,7 @@ FlowFit is a platform developed to address the specific needs of a gym in Vagos,
 - More engaged clients
 - Data-driven decision-making
 
-**Challenges Faced During Development**
+## Challenges Faced During Development
 
 The development of this project was not without its challenges. The main difficulty was the **extremely limited time** we had to build such a complex application. We had only **72 hours** to develop everything, which created a lot of pressure throughout the process. Additionally, the **deployment on AWS** was another major obstacle. Since we were dealing with two applications within the same deployment, many configuration issues arose, leading to a real headache. After many hours of attempts and with the help of a senior developer, we managed to resolve the issue. On the frontend side, some parts of the application didn't communicate properly due to the lack of time to perform more detailed integrations. All of this happened under **immense pressure** to deliver the project on time. However, despite these challenges, we managed to overcome the obstacles and, in the end, **won the Best Application** award for the challenge, with a certificate as recognition. The experience was tough, but rewarding!
 
