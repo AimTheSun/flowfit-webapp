@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CORPO CULTO</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        />
+        <link rel="stylesheet" href="/css/stylesheet.css" />
+    </head>
+
+    <body>
+        <!-- Header -->
+        <header>
+            <div class="logo">CORPO CULTO</div>
+        </header>
+
+        <!-- Container Principal -->
+        <div class="background-container">
+            <!-- Vídeo/GIF de Fundo -->
+            <img src="images/IntroGif.gif" alt="Intro GIF" class="background-gif" />
+
+            <!-- Conteúdo Principal -->
+            <main class="home-content">
+                <!-- Carrossel -->
+                <section class="carousel-container">
+                    <div class="carousel-track">
+                        <!-- Conteúdo do carrossel será renderizado pelo JS -->
+                    </div>
+                </section>
+                <!-- Indicadores do carrossel -->
+                <div class="carousel-indicators"></div>
+            </main>
+
+            <!-- Footer com botões -->
+            <footer>
+                <div class="btn-container">
+                    <a href="/register" class="btn">Registo</a>
+                    <a href="/login" class="btn">Login</a>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Scripts -->
+        <script type="module" src="./js/index.js"></script>
+    </body>
+</html>

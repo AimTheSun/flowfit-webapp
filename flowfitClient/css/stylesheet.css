@@ -1,0 +1,964 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Corpo Geral */
+body {
+    background: linear-gradient(135deg, #05070e, #0b0f1f);
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+/* Cabeçalho */
+header {
+    font-family: 'Bebas Neue', sans-serif;
+    padding: 30px 60px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    z-index: 3; /* Acima do fundo */
+}
+
+/* Container Principal */
+.background-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 85vh;
+    position: relative;
+    z-index: 1; /* Conteúdo acima do fundo */
+}
+
+.logo {
+    color: #f90;
+}
+
+/* GIF de Fundo */
+.background-gif {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0; /* Fundo atrás de tudo */
+    pointer-events: none; /* Permite interagir com o conteúdo acima */
+}
+
+/* Home Content */
+.home-content {
+    margin-top: 70px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    color: #fff;
+    /* Garante visibilidade do texto */
+    text-align: center;
+    z-index: 1;
+}
+
+/* Carrossel */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    /* Centraliza horizontalmente */
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    /* Organiza os elementos em coluna */
+    align-items: center;
+    /* Centraliza na horizontal */
+    height: auto;
+    /* Altura dinâmica */
+    gap: 10px;
+    /* Espaço entre carrossel e os pontos */
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.carousel-item {
+    min-width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    /* Menor opacidade na borda escura */
+    color: #fff;
+    /* Cor do texto */
+    border-radius: 8px;
+    /* Cantos arredondados */
+    margin-bottom: 5px;
+}
+
+/* Indicadores do Carrossel */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    /* Espaço entre os pontos */
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: #444;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #ff7b00;
+}
+
+/* Botões */
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 80px;
+}
+
+.btn {
+    display: block;
+    background-color: #0c0c1e;
+    /* Azul escuro */
+    color: #f90;
+    /* Texto laranja */
+    padding: 15px 30px;
+    /* Espaçamento interno */
+    text-decoration: none;
+    border-radius: 30px;
+    /* Bordas arredondadas */
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: center;
+    width: 80%;
+    max-width: 300px;
+    z-index: 2;
+    /* Garante que os botões fiquem acima */
+    border: 2px solid #ffc107;
+    /* Borda amarela */
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ff7b00;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .main-content h1 {
+        font-size: 2rem;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+}
+
+/* Login Form */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 50px auto;
+    width: 80%;
+    max-width: 400px;
+    background-color: #222;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.login-container h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    color: #f90;
+}
+
+.login-container input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.login-container input:focus {
+    border-color: #f90;
+    outline: none;
+}
+
+.login-container input.error {
+    border-color: red;
+}
+
+.login-container input.success {
+    border-color: green;
+}
+
+.login-btn {
+    background-color: #f90;
+    color: #000;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #ff7b00;
+}
+
+.login-container p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+.login-container p a {
+    color: #f90;
+    text-decoration: none;
+}
+
+.login-container p a:hover {
+    text-decoration: underline;
+}
+
+.login-container .error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.footer-icon.active {
+    color: #fff;
+    /* Cor branca para o ícone ativo */
+}
+
+/* Registo Form */
+.register-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 50px auto;
+    width: 80%;
+    max-width: 400px;
+    background-color: #222;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.register-container h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    color: #f90;
+}
+
+.register-container input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.register-container input:focus {
+    border-color: #f90;
+    outline: none;
+}
+
+.register-container input.error {
+    border-color: red;
+}
+
+.register-container input.success {
+    border-color: green;
+}
+
+.register-btn {
+    background-color: #f90;
+    color: #000;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.register-btn:hover {
+    background-color: #ff7b00;
+}
+
+/* Formulário Compartilhado */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+input {
+    border: 1px solid #555;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input:focus {
+    outline: none;
+}
+
+input.error {
+    border-color: red !important;
+}
+
+input.success {
+    border-color: green !important;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* AQUI COMEÇA APOS LOGIN DO USER */
+
+/* Header */
+.mypage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #222;
+    color: #f90;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.app-logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+
+.menu-icon {
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* Main Content */
+.mypage-content {
+    padding: 20px 20px 20px;
+    text-align: left;
+}
+.welcome-message {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600; /* Peso mais grosso para destaque */
+    color: #e0e0e0; /* Um cinza claro para modernizar */
+    text-align: right; /* Alinha à esquerda */
+    margin: 10px 0 20px 10px; /* Espaçamento ajustado */
+    letter-spacing: 0.5px; /* Espaçamento leve entre letras */
+}
+.welcome-message span {
+    color: #fefefe;
+    font-weight: 600;
+} /* Objetivo do mês */
+.goal-bar {
+    position: relative;
+    height: 10px;
+    width: 100%; /* Largura total */
+    background-color: #333; /* Fundo escuro */
+    border-radius: 5px;
+    overflow: hidden; /* Esconde partes externas */
+    margin-top: 10px;
+}
+.goal-bar-inner {
+    height: 100%;
+    background-color: #f90; /* Cor do progresso */
+    border-radius: 5px;
+    position: relative;
+    z-index: 1; /* Mantém acima do fundo */
+}
+.goal-bar-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%; /* Cobre toda a barra */
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0) 100%
+    ); /* Efeito de luz em movimento */
+    animation: loading 2s linear infinite; /* Movimento contínuo */
+    z-index: 2; /* Acima da barra fixa */
+}
+@keyframes loading {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff9500, #ff7b00);
+    transition: width 1s ease-in-out;
+}
+.percentage {
+    fill: #fff;
+    font-size: 0.4rem;
+    text-anchor: middle;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+@keyframes progress {
+    0% {
+        stroke-dasharray: 0 100;
+    }
+}
+.goal-container {
+    background: linear-gradient(135deg, #191926, #0c0c1e);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 20px;
+}
+/*
+.goal-text {
+  font-size: 1rem;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}.goal-chart {
+  width: 100px;
+  height: 100px;
+}.circular-chart {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}.circle-bg {
+  fill: none;
+  stroke: #ddd;
+  stroke-width: 3.8;
+}.circle {
+  fill: none;
+  stroke: #f90;
+  stroke-width: 3.8;
+  stroke-linecap: round;
+  animation: progress 1s ease-out forwards;
+}
+*/ /* Footer */
+.mypage-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(8, 10, 21, 0.8); /* Fundo translúcido */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 0;
+    border-top: 1px solid #f90;
+}
+.footer-icon {
+    font-size: 1.5rem;
+    color: #f90;
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+.footer-icon:hover {
+    color: #f90;
+}
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+} /* Menu Overlay */
+.menu-overlay {
+    position: fixed;
+    top: 60px;
+    /* Deixa o header visível */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 60px);
+    background-color: rgba(0, 0, 0, 0.95);
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+    padding: 20px;
+}
+.menu-overlay.active {
+    display: flex;
+}
+.menu-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    width: 100%;
+}
+.menu-item {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: #fff;
+    /* Alterado para branco */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.menu-item:hover {
+    color: #f90;
+} /* Footer no Menu */
+.menu-footer {
+    width: 100%;
+    /* Ocupa toda a largura */
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    border-top: 1px solid #444;
+    /* Linha separadora */
+}
+.menu-logout {
+    background-color: #f90;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    width: 80%;
+    /* Ocupa boa parte do footer */
+    text-align: center;
+}
+.menu-logout:hover {
+    background-color: #f90;
+} /* Linha de Separação */
+.section-divider {
+    width: 90%;
+    height: 3px;
+    background-color: #f90;
+    margin: 10% auto;
+    border-radius: 2px;
+} /* Título da Seção */
+.section-title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+} /* Blocos de Dicas de Treino */
+.training-tips {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 10%;
+} /* Estilo para o contêiner principal */
+.training-grid {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar linhas */
+    gap: 20px; /* Espaçamento entre as imagens */
+    justify-content: center; /* Centraliza os itens no contêiner */
+    margin: 20px 0;
+} /* Blocos de Dicas de Treino */
+/* Cartões de Treino */
+.training-card {
+    width: calc(50% - 20px); /* Cada imagem ocupa metade da largura */
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.training-card:hover {
+    transform: scale(1.05); /* Zoom leve ao passar o mouse */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+}
+.training-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.training-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 15px;
+}
+.training-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%; /* Altura do overlay */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: #fff; /* Texto branco */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.training-title {
+    margin: 0;
+    font-weight: bold;
+}
+.mytraining-content {
+    padding-top: 70px;
+    padding: 20px;
+    padding-bottom: 100px; /* Altura do footer */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.training-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #121826; /* Tom escuro com azul */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.training-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.7);
+} /* Imagem de Treino com Overlay */
+.training-image {
+    width: 100%;
+    height: 200px; /* Altura ajustada */
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px; /* Borda arredondada opcional */
+}
+.training-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+.training-block:hover img {
+    transform: scale(1.1);
+}
+.training-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%; /* Altura proporcional ao contêiner */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+}
+.training-details {
+    padding: 20px;
+    text-align: left;
+    width: 100%;
+}
+.training-details h2 {
+    font-size: 1.5rem;
+    color: #f90; /* Laranja vibrante */
+    margin-bottom: 10px;
+}
+.training-description {
+    font-size: 1rem;
+    color: #bbb;
+    line-height: 1.5;
+    margin: 10px 0 0 0;
+}
+
+/* QR CODE */
+
+.qrcode-container {
+    margin-top: 10%;
+}
+
+.qrcode-container h2,
+.qrcode-container p {
+    padding: 5% 0 10% 0;
+}
+
+.urlqrcode {
+    display: none;
+}
+
+/* Nutrição - Cards */
+.mynutrition-content {
+    padding-top: 70px;
+    padding: 20px;
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.nutrition-card {
+    position: relative;
+    background-color: #121826;
+    /* Azul escuro moderno */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.nutrition-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.7);
+}
+
+/* Imagem e Overlay */
+.nutrition-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.nutrition-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.nutrition-card:hover img {
+    transform: scale(1.1);
+}
+
+.nutrition-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f90;
+    /* Laranja vibrante */
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Detalhes */
+.nutrition-details {
+    padding: 20px;
+    text-align: left;
+}
+
+.nutrition-details h2 {
+    font-size: 1.5rem;
+    color: #f90;
+    margin-bottom: 10px;
+}
+
+.nutrition-calories {
+    font-size: 1.1rem;
+    color: #f3f3f3;
+    margin-bottom: 10px;
+}
+
+.nutrition-description {
+    font-size: 1rem;
+    color: #bbb;
+    line-height: 1.5;
+}
+
+/* CHAT BOT */
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    background-color: #222;
+    color: #fff;
+    border-radius: 8px;
+    margin: 80px auto;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.role-selection {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.role-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #333;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.role-btn.active {
+    background-color: #f90;
+    color: #000;
+}
+
+.chat-window {
+    height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #111;
+    border: 1px solid #555;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.message.user {
+    background-color: #f90;
+    color: #000;
+    align-self: flex-end;
+}
+
+.message.ai {
+    background-color: #333;
+    color: #fff;
+    align-self: flex-start;
+}
+
+.message.error {
+    background-color: #d32f2f;
+    color: #fff;
+    align-self: center;
+    font-style: italic;
+}
+
+.message-input-container {
+    display: flex;
+    gap: 10px;
+}
+
+#message-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+#message-input:focus {
+    outline: none;
+    border-color: #f90;
+}
+
+#send-message-btn {
+    padding: 10px 20px;
+    background-color: #f90;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#send-message-btn:hover {
+    background-color: #ff7b00;
+}
+
+@media (min-width: 961px) {
+    .qrcode-container {
+        margin-top: 0 !important;
+    }
+
+    .qrcode-container h2,
+    .qrcode-container p {
+        padding: 5% 0 2% 0 !important;
+    }
+
+    .mypage-content {
+        padding: 20px 20% 20px;
+    }
+}

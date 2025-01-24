@@ -1,0 +1,23 @@
+{
+    "env": {
+        "browser": true,
+        "es2023": true
+    },
+    "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+    "parserOptions": {
+        "ecmaVersion": 14,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "impliedStrict": true
+        }
+    },
+    "rules": {
+        "strict": [2, "global"],
+        "eqeqeq": [2, "smart"],
+        "no-unused-vars": [
+            "error",
+            { "vars": "all", "args": "after-used", "ignoreRestSiblings": true }
+        ],
+        "no-console": "off"
+    }
+}
