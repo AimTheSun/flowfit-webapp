@@ -4,12 +4,6 @@ Please note that **the application is currently not deployed on AWS**. It was in
 
 FlowFit is a platform developed to address the specific needs of a gym in Vagos, designed to optimize gym operations and improve both client and operational experiences. It combines modern technologies to provide an efficient and user-friendly system.
 
-## The Problem
-A gym is more than just a place to work out—it's a space to help individuals reach their goals. The gym in Vagos faced a significant challenge: the lack of an efficient client management system. Manual processes were making organization, personalized service, and client motivation difficult.
-
-## The Solution
-FlowFit was developed to overcome this challenge. It is a modern, functional platform that digitalizes and optimizes gym operations, enhancing the overall customer experience.
-
 ## Technologies Used
 - **Frontend:** HTML, CSS, JavaScript
 - **Backend:** Java, Spring Boot, Spring MVC, JPA, Hibernate, REST APIs, Maven, Lombok, Embedded Tomcat (for deployment)
@@ -23,12 +17,17 @@ FlowFit was developed to overcome this challenge. It is a modern, functional pla
 - Client management system
 - Intuitive dashboard for gym operations
 - QR Code check-in for clients
-- Real-time reports for better decision-making
+- Client app view with chatbot (with Identities - Personal Trainer and a Nutricionist)
 
 ## Impact
 - Increased operational efficiency
 - More engaged clients
 - Data-driven decision-making
+
+**Challenges Faced During Development**
+
+The development of this project was not without its challenges. The main difficulty was the **extremely limited time** we had to build such a complex application. We had only **72 hours** to develop everything, which created a lot of pressure throughout the process. Additionally, the **deployment on AWS** was another major obstacle. Since we were dealing with two applications within the same deployment, many configuration issues arose, leading to a real headache. After many hours of attempts and with the help of a senior developer, we managed to resolve the issue. On the frontend side, some parts of the application didn't communicate properly due to the lack of time to perform more detailed integrations. All of this happened under **immense pressure** to deliver the project on time. However, despite these challenges, we managed to overcome the obstacles and, in the end, **won the Best Application** award for the challenge, with a certificate as recognition. The experience was tough, but rewarding!
+
 
 ## How to Run Locally
 
