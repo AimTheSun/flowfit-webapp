@@ -1,6 +1,6 @@
 # FlowFit
 
-Please note that **the application is currently not deployed on AWS**. While it was previously deployed as part of the final course presentation, we are now focusing on improving and refining the platform. The initial deployment was done within a **72-hour timeframe**, which allowed us to showcase the core functionalities. However, as we continue to enhance the app, we are working on optimizing its performance and adding additional features before **re-deploying it**. Stay tuned for updates on the deployment!
+Please note that **the application is currently not deployed on AWS**. It was initially deployed as part of our final course (bootcamp) presentation, but we are now focusing on enhancing and improving the platform. The entire project was developed within **only** a **72-hour timeframe** to meet the requirements of the course's final presentation. We are now refining the app, optimizing performance, and adding new features before **re-deploying it**. Stay tuned for further updates!
 
 FlowFit is a platform developed to address the specific needs of a gym in Vagos, designed to optimize gym operations and improve both client and operational experiences. It combines modern technologies to provide an efficient and user-friendly system.
 
@@ -17,6 +17,7 @@ FlowFit was developed to overcome this challenge. It is a modern, functional pla
 - **Authentication:** JWT
 - **Testing:** Postman
 - **Design:** Modern animations, gradients, and progress bars.
+- **Deploy:** AWS
 
 ## Key Features
 - Client management system
