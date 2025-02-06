@@ -4,7 +4,8 @@ export default class NormalView {
     }
 
     render() {
-        this.chatContainer.innerHTML = '<h2>Normal Mode</h2><p>The assistant is in a neutral mood.</p>';
+        this.chatContainer.innerHTML =
+            '<h2>Normal Mode</h2><p>The assistant is in a neutral mood.</p>';
         this.chatContainer.style.backgroundColor = '#e6ffe6'; // Light green background
         this.chatContainer.style.borderColor = '#00ff00'; // Green border
     }

@@ -1,3 +1,20 @@
+/* Define CSS Variables */
+:root {
+    --color-background: linear-gradient(135deg, #05070e, #0b0f1f);
+    --color-text: #fff;
+    --color-header: #f90;
+    --color-button-bg: #0c0c1e;
+    --color-button-hover: #ff7b00;
+    --color-error: red;
+    --color-success: green;
+    --color-footer-bg: rgba(8, 10, 21, 0.8);
+    --color-footer-border: #f90;
+    --color-input-bg: #333;
+    --color-input-border: #555;
+    --color-input-focus: #f90;
+}
+
+/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -5,43 +22,50 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Corpo Geral */
+/* Body */
 body {
-    background: linear-gradient(135deg, #05070e, #0b0f1f);
-    color: #fff;
+    background: var(--color-background);
+    color: var(--color-text);
     text-align: center;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
+    height: auto; /* Alterado */
+    min-height: 100vh; /* Mantém responsivo */
+    justify-content: flex-end;
 }
 
-/* Cabeçalho */
-header {
+/* Header */
+.header {
     font-family: 'Bebas Neue', sans-serif;
-    padding: 30px 60px;
+    padding: 20px 60px;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
-    z-index: 3; /* Acima do fundo */
+    color: white; /* Teste com branco para garantir contraste */
+    position: absolute; /* Coloca no topo da página */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10; /* Garante que esteja acima de outros elementos */
+    background: rgba(0, 0, 0, 0.5); /* Opcional: fundo transparente para destaque */
 }
 
-/* Container Principal */
+/* Main Container */
 .background-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 85vh;
+    min-height: auto;
     position: relative;
-    z-index: 1; /* Conteúdo acima do fundo */
+    z-index: 1;
 }
 
+/* Logo */
 .logo {
-    color: #f90;
+    color: var(--color-header); /* Garante contraste */
+    font-size: 2rem; /* Ajusta tamanho */
 }
-
-/* GIF de Fundo */
+/* Background GIF */
 .background-gif {
     position: fixed;
     top: 0;
@@ -49,42 +73,36 @@ header {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 0; /* Fundo atrás de tudo */
-    pointer-events: none; /* Permite interagir com o conteúdo acima */
+    z-index: 0;
+    pointer-events: none;
 }
 
 /* Home Content */
 .home-content {
-    margin-top: 70px;
+    margin-top: 50px;
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 100vh;
-    color: #fff;
-    /* Garante visibilidade do texto */
+    justify-content: center; /* Alinha ao centro */
+    height: auto; /* Permite que cresça conforme o conteúdo */
+    color: var(--color-text);
     text-align: center;
     z-index: 1;
 }
 
-/* Carrossel */
+/* Carousel */
 .carousel-container {
     position: relative;
     overflow: hidden;
     width: 90%;
     max-width: 500px;
     margin: 0 auto;
-    /* Centraliza horizontalmente */
     margin-top: auto;
     display: flex;
     flex-direction: column;
-    /* Organiza os elementos em coluna */
     align-items: center;
-    /* Centraliza na horizontal */
     height: auto;
-    /* Altura dinâmica */
     gap: 10px;
-    /* Espaço entre carrossel e os pontos */
 }
 
 .carousel-track {
@@ -99,20 +117,16 @@ header {
     font-size: 1rem;
     padding: 8px;
     background: rgba(0, 0, 0, 0.6);
-    /* Menor opacidade na borda escura */
-    color: #fff;
-    /* Cor do texto */
+    color: var(--color-text);
     border-radius: 8px;
-    /* Cantos arredondados */
     margin-bottom: 5px;
 }
 
-/* Indicadores do Carrossel */
+/* Carousel Indicators */
 .carousel-indicators {
     display: flex;
     justify-content: center;
     gap: 6px;
-    /* Espaço entre os pontos */
     margin-top: 0;
     margin-bottom: 30px;
 }
@@ -126,10 +140,10 @@ header {
 }
 
 .dot.active {
-    background-color: #ff7b00;
+    background-color: var(--color-header);
 }
 
-/* Botões */
+/* Buttons */
 .btn-container {
     display: flex;
     flex-direction: column;
@@ -140,34 +154,28 @@ header {
 
 .btn {
     display: block;
-    background-color: #0c0c1e;
-    /* Azul escuro */
-    color: #f90;
-    /* Texto laranja */
+    background-color: var(--color-button-bg);
+    color: var(--color-header);
     padding: 15px 30px;
-    /* Espaçamento interno */
     text-decoration: none;
     border-radius: 30px;
-    /* Bordas arredondadas */
     font-weight: bold;
     font-size: 1.1rem;
     text-align: center;
     width: 80%;
     max-width: 300px;
     z-index: 2;
-    /* Garante que os botões fiquem acima */
     border: 2px solid #ffc107;
-    /* Borda amarela */
     transition:
         background-color 0.3s ease,
         color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #ff7b00;
+    background-color: var(--color-button-hover);
 }
 
-/* Responsividade */
+/* Responsive Styles */
 @media (max-width: 768px) {
     .main-content h1 {
         font-size: 2rem;
@@ -196,34 +204,34 @@ header {
     font-family: 'Bebas Neue', sans-serif;
     margin-bottom: 15px;
     font-size: 1.8rem;
-    color: #f90;
+    color: var(--color-header);
 }
 
 .login-container input {
     padding: 10px;
     font-size: 1rem;
-    border: 1px solid #555;
+    border: 1px solid var(--color-input-border);
     border-radius: 5px;
-    background-color: #333;
-    color: #fff;
+    background-color: var(--color-input-bg);
+    color: var(--color-text);
     transition: border-color 0.3s ease-in-out;
 }
 
 .login-container input:focus {
-    border-color: #f90;
+    border-color: var(--color-input-focus);
     outline: none;
 }
 
 .login-container input.error {
-    border-color: red;
+    border-color: var(--color-error);
 }
 
 .login-container input.success {
-    border-color: green;
+    border-color: var(--color-success);
 }
 
 .login-btn {
-    background-color: #f90;
+    background-color: var(--color-header);
     color: #000;
     padding: 10px 20px;
     text-decoration: none;
@@ -235,7 +243,7 @@ header {
 }
 
 .login-btn:hover {
-    background-color: #ff7b00;
+    background-color: var(--color-button-hover);
 }
 
 .login-container p {
@@ -245,7 +253,7 @@ header {
 }
 
 .login-container p a {
-    color: #f90;
+    color: var(--color-header);
     text-decoration: none;
 }
 
@@ -254,17 +262,12 @@ header {
 }
 
 .login-container .error-message {
-    color: red;
+    color: var(--color-error);
     font-size: 0.9rem;
     margin-top: 5px;
 }
 
-.footer-icon.active {
-    color: #fff;
-    /* Cor branca para o ícone ativo */
-}
-
-/* Registo Form */
+/* Registration Form */
 .register-container {
     display: flex;
     flex-direction: column;
@@ -281,34 +284,34 @@ header {
     font-family: 'Bebas Neue', sans-serif;
     margin-bottom: 15px;
     font-size: 1.8rem;
-    color: #f90;
+    color: var(--color-header);
 }
 
 .register-container input {
     padding: 10px;
     font-size: 1rem;
-    border: 1px solid #555;
+    border: 1px solid var(--color-input-border);
     border-radius: 5px;
-    background-color: #333;
-    color: #fff;
+    background-color: var(--color-input-bg);
+    color: var(--color-text);
     transition: border-color 0.3s ease-in-out;
 }
 
 .register-container input:focus {
-    border-color: #f90;
+    border-color: var(--color-input-focus);
     outline: none;
 }
 
 .register-container input.error {
-    border-color: red;
+    border-color: var(--color-error);
 }
 
 .register-container input.success {
-    border-color: green;
+    border-color: var(--color-success);
 }
 
 .register-btn {
-    background-color: #f90;
+    background-color: var(--color-header);
     color: #000;
     padding: 10px 20px;
     text-decoration: none;
@@ -320,10 +323,10 @@ header {
 }
 
 .register-btn:hover {
-    background-color: #ff7b00;
+    background-color: var(--color-button-hover);
 }
 
-/* Formulário Compartilhado */
+/* Shared Form Styles */
 .form-group {
     display: flex;
     flex-direction: column;
@@ -331,7 +334,7 @@ header {
 }
 
 input {
-    border: 1px solid #555;
+    border: 1px solid var(--color-input-border);
     padding: 10px;
     font-size: 1rem;
     border-radius: 5px;
@@ -343,29 +346,27 @@ input:focus {
 }
 
 input.error {
-    border-color: red !important;
+    border-color: var(--color-error) !important;
 }
 
 input.success {
-    border-color: green !important;
+    border-color: var(--color-success) !important;
 }
 
 .error-message {
-    color: red;
+    color: var(--color-error);
     font-size: 0.9rem;
     margin-top: 5px;
 }
 
-/* AQUI COMEÇA APOS LOGIN DO USER */
-
-/* Header */
+/* User Page Header */
 .mypage-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 15px;
     background-color: #222;
-    color: #f90;
+    color: var(--color-header);
     font-family: 'Poppins', sans-serif;
     font-size: 1.4rem;
     position: fixed;
@@ -390,50 +391,57 @@ input.success {
     padding: 20px 20px 20px;
     text-align: left;
 }
+
 .welcome-message {
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
-    font-weight: 600; /* Peso mais grosso para destaque */
-    color: #e0e0e0; /* Um cinza claro para modernizar */
-    text-align: right; /* Alinha à esquerda */
-    margin: 10px 0 20px 10px; /* Espaçamento ajustado */
-    letter-spacing: 0.5px; /* Espaçamento leve entre letras */
-}
-.welcome-message span {
-    color: #fefefe;
     font-weight: 600;
-} /* Objetivo do mês */
+    color: #e0e0e0;
+    text-align: right;
+    margin: 10px 0 20px 10px;
+    letter-spacing: 0.5px;
+}
+
+.welcome-message span {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+/* Goal Bar */
 .goal-bar {
     position: relative;
     height: 10px;
-    width: 100%; /* Largura total */
-    background-color: #333; /* Fundo escuro */
+    width: 100%;
+    background-color: #333;
     border-radius: 5px;
-    overflow: hidden; /* Esconde partes externas */
+    overflow: hidden;
     margin-top: 10px;
 }
+
 .goal-bar-inner {
     height: 100%;
-    background-color: #f90; /* Cor do progresso */
+    background-color: var(--color-header);
     border-radius: 5px;
     position: relative;
-    z-index: 1; /* Mantém acima do fundo */
+    z-index: 1;
 }
+
 .goal-bar-loading {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
-    width: 100%; /* Cobre toda a barra */
+    width: 100%;
     background: linear-gradient(
         90deg,
         rgba(255, 255, 255, 0) 0%,
         rgba(255, 255, 255, 0.2) 50%,
         rgba(255, 255, 255, 0) 100%
-    ); /* Efeito de luz em movimento */
-    animation: loading 2s linear infinite; /* Movimento contínuo */
-    z-index: 2; /* Acima da barra fixa */
+    );
+    animation: loading 2s linear infinite;
+    z-index: 2;
 }
+
 @keyframes loading {
     0% {
         transform: translateX(-100%);
@@ -442,99 +450,42 @@ input.success {
         transform: translateX(100%);
     }
 }
-.progress-bar {
-    width: 100%;
-    height: 12px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-.progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #ff9500, #ff7b00);
-    transition: width 1s ease-in-out;
-}
-.percentage {
-    fill: #fff;
-    font-size: 0.4rem;
-    text-anchor: middle;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-}
-@keyframes progress {
-    0% {
-        stroke-dasharray: 0 100;
-    }
-}
-.goal-container {
-    background: linear-gradient(135deg, #191926, #0c0c1e);
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    margin: 20px;
-}
-/*
-.goal-text {
-  font-size: 1rem;
-  color: #fff;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-}.goal-chart {
-  width: 100px;
-  height: 100px;
-}.circular-chart {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}.circle-bg {
-  fill: none;
-  stroke: #ddd;
-  stroke-width: 3.8;
-}.circle {
-  fill: none;
-  stroke: #f90;
-  stroke-width: 3.8;
-  stroke-linecap: round;
-  animation: progress 1s ease-out forwards;
-}
-*/ /* Footer */
+
+/* Footer */
 .mypage-footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background: rgba(8, 10, 21, 0.8); /* Fundo translúcido */
+    background: var(--color-footer-bg);
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 15px 0;
-    border-top: 1px solid #f90;
+    border-top: 1px solid var(--color-footer-border);
 }
+
 .footer-icon {
     font-size: 1.5rem;
-    color: #f90;
+    color: var(--color-header);
     transition:
         color 0.3s ease,
         transform 0.3s ease;
 }
+
 .footer-icon:hover {
-    color: #f90;
+    color: var(--color-header);
 }
+
 nav {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-} /* Menu Overlay */
+}
+
+/* Menu Overlay */
 .menu-overlay {
     position: fixed;
     top: 60px;
-    /* Deixa o header visível */
     left: 0;
     width: 100%;
     height: calc(100% - 60px);
@@ -546,9 +497,11 @@ nav {
     z-index: 999;
     padding: 20px;
 }
+
 .menu-overlay.active {
     display: flex;
 }
+
 .menu-nav {
     display: flex;
     flex-direction: column;
@@ -556,28 +509,30 @@ nav {
     text-align: center;
     width: 100%;
 }
+
 .menu-item {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.5rem;
-    color: #fff;
-    /* Alterado para branco */
+    color: var(--color-text);
     text-decoration: none;
     transition: color 0.3s ease;
 }
+
 .menu-item:hover {
-    color: #f90;
-} /* Footer no Menu */
+    color: var(--color-header);
+}
+
+/* Footer in Menu */
 .menu-footer {
     width: 100%;
-    /* Ocupa toda a largura */
     display: flex;
     justify-content: center;
     padding: 10px 0;
     border-top: 1px solid #444;
-    /* Linha separadora */
 }
+
 .menu-logout {
-    background-color: #f90;
+    background-color: var(--color-header);
     color: #000;
     border: none;
     padding: 10px 20px;
@@ -587,41 +542,50 @@ nav {
     transition: background-color 0.3s;
     border-radius: 5px;
     width: 80%;
-    /* Ocupa boa parte do footer */
     text-align: center;
 }
+
 .menu-logout:hover {
-    background-color: #f90;
-} /* Linha de Separação */
+    background-color: var(--color-header);
+}
+
+/* Section Divider */
 .section-divider {
     width: 90%;
     height: 3px;
-    background-color: #f90;
+    background-color: var(--color-header);
     margin: 10% auto;
     border-radius: 2px;
-} /* Título da Seção */
+}
+
+/* Section Title */
 .section-title {
     text-align: center;
     font-size: 1.5rem;
-    color: #fff;
+    color: var(--color-text);
     margin-bottom: 20px;
-} /* Blocos de Dicas de Treino */
+}
+
+/* Training Tips */
 .training-tips {
     display: flex;
     flex-direction: column;
     gap: 15px;
     padding: 0 10%;
-} /* Estilo para o contêiner principal */
+}
+
+/* Main Container Style */
 .training-grid {
     display: flex;
-    flex-wrap: wrap; /* Permite quebrar linhas */
-    gap: 20px; /* Espaçamento entre as imagens */
-    justify-content: center; /* Centraliza os itens no contêiner */
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
     margin: 20px 0;
-} /* Blocos de Dicas de Treino */
-/* Cartões de Treino */
+}
+
+/* Training Cards */
 .training-card {
-    width: calc(50% - 20px); /* Cada imagem ocupa metade da largura */
+    width: calc(50% - 20px);
     position: relative;
     overflow: hidden;
     border-radius: 15px;
@@ -629,29 +593,33 @@ nav {
     cursor: pointer;
     transition: transform 0.3s ease;
 }
+
 .training-card:hover {
-    transform: scale(1.05); /* Zoom leve ao passar o mouse */
+    transform: scale(1.05);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
 }
+
 .training-image-wrapper {
     position: relative;
     width: 100%;
     height: auto;
 }
+
 .training-image {
     width: 100%;
     height: auto;
     object-fit: cover;
     border-radius: 15px;
 }
+
 .training-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 40%; /* Altura do overlay */
+    height: 40%;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-    color: #fff; /* Texto branco */
+    color: var(--color-text);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -662,24 +630,28 @@ nav {
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }
+
 .training-title {
     margin: 0;
     font-weight: bold;
 }
+
+/* My Training Content */
 .mytraining-content {
     padding-top: 70px;
     padding: 20px;
-    padding-bottom: 100px; /* Altura do footer */
+    padding-bottom: 100px;
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
+
 .training-block {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #121826; /* Tom escuro com azul */
+    background-color: #121826;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
@@ -688,57 +660,65 @@ nav {
         box-shadow 0.3s ease;
     cursor: pointer;
 }
+
 .training-block:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.7);
-} /* Imagem de Treino com Overlay */
+}
+
+/* Training Image with Overlay */
 .training-image {
     width: 100%;
-    height: 200px; /* Altura ajustada */
+    height: 200px;
     overflow: hidden;
     position: relative;
-    border-radius: 10px; /* Borda arredondada opcional */
+    border-radius: 10px;
 }
+
 .training-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
+
 .training-block:hover img {
     transform: scale(1.1);
 }
+
 .training-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 40%; /* Altura proporcional ao contêiner */
+    height: 40%;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-    color: #fff;
+    color: var(--color-text);
     text-align: center;
     font-weight: bold;
     padding: 10px;
 }
+
+/* Training Details */
 .training-details {
     padding: 20px;
     text-align: left;
     width: 100%;
 }
+
 .training-details h2 {
     font-size: 1.5rem;
-    color: #f90; /* Laranja vibrante */
+    color: var(--color-header);
     margin-bottom: 10px;
 }
+
 .training-description {
     font-size: 1rem;
     color: #bbb;
     line-height: 1.5;
-    margin: 10px 0 0 0;
 }
 
 /* QR CODE */
-
 .qrcode-container {
     margin-top: 10%;
 }
@@ -752,7 +732,7 @@ nav {
     display: none;
 }
 
-/* Nutrição - Cards */
+/* Nutrition - Cards */
 .mynutrition-content {
     padding-top: 70px;
     padding: 20px;
@@ -765,7 +745,6 @@ nav {
 .nutrition-card {
     position: relative;
     background-color: #121826;
-    /* Azul escuro moderno */
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
@@ -780,7 +759,7 @@ nav {
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.7);
 }
 
-/* Imagem e Overlay */
+/* Nutrition Image and Overlay */
 .nutrition-image {
     position: relative;
     width: 100%;
@@ -809,14 +788,13 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #f90;
-    /* Laranja vibrante */
+    color: var(--color-header);
     font-size: 1.2rem;
     font-weight: bold;
     text-transform: uppercase;
 }
 
-/* Detalhes */
+/* Nutrition Details */
 .nutrition-details {
     padding: 20px;
     text-align: left;
@@ -824,7 +802,7 @@ nav {
 
 .nutrition-details h2 {
     font-size: 1.5rem;
-    color: #f90;
+    color: var(--color-header);
     margin-bottom: 10px;
 }
 
@@ -848,9 +826,9 @@ nav {
     gap: 10px;
     padding: 20px;
     background-color: #222;
-    color: #fff;
+    color: var(--color-text);
     border-radius: 8px;
-    margin: 80px auto;
+    margin: 160px auto;
     width: 90%;
     max-width: 600px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
@@ -869,12 +847,12 @@ nav {
     border-radius: 5px;
     cursor: pointer;
     background-color: #333;
-    color: #fff;
+    color: var(--color-text);
     transition: background-color 0.3s;
 }
 
 .role-btn.active {
-    background-color: #f90;
+    background-color: var(--color-header);
     color: #000;
 }
 
@@ -883,7 +861,7 @@ nav {
     overflow-y: auto;
     padding: 10px;
     background-color: #111;
-    border: 1px solid #555;
+    border: 1px solid var(--color-input-border);
     border-radius: 5px;
     margin-bottom: 10px;
 }
@@ -897,20 +875,20 @@ nav {
 }
 
 .message.user {
-    background-color: #f90;
+    background-color: var(--color-header);
     color: #000;
     align-self: flex-end;
 }
 
 .message.ai {
     background-color: #333;
-    color: #fff;
+    color: var(--color-text);
     align-self: flex-start;
 }
 
 .message.error {
-    background-color: #d32f2f;
-    color: #fff;
+    background-color: var(--color-error);
+    color: var(--color-text);
     align-self: center;
     font-style: italic;
 }
@@ -923,20 +901,20 @@ nav {
 #message-input {
     flex: 1;
     padding: 10px;
-    border: 1px solid #555;
+    border: 1px solid var(--color-input-border);
     border-radius: 5px;
-    background-color: #333;
-    color: #fff;
+    background-color: var(--color-input-bg);
+    color: var(--color-text);
 }
 
 #message-input:focus {
     outline: none;
-    border-color: #f90;
+    border-color: var(--color-input-focus);
 }
 
 #send-message-btn {
     padding: 10px 20px;
-    background-color: #f90;
+    background-color: var(--color-header);
     color: #000;
     border: none;
     border-radius: 5px;
@@ -945,7 +923,7 @@ nav {
 }
 
 #send-message-btn:hover {
-    background-color: #ff7b00;
+    background-color: var(--color-button-hover);
 }
 
 @media (min-width: 961px) {

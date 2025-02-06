@@ -3,7 +3,7 @@ export const mypageView = {
         const totalGoal = 20; // Objetivo total (por exemplo, 20 pontos)
         const progressPercentage = Math.min((monthlyGoalValue / totalGoal) * 100, 100); // Calcula o progresso em %
 
-        const main = document.querySelector("main");
+        const main = document.querySelector('main');
         main.innerHTML = `
         <!-- Header -->
         <header class="mypage-header">
@@ -99,26 +99,26 @@ export const mypageView = {
         // Define o ícone ativo com base na rota atual
         const currentPath = window.location.pathname;
 
-        document.querySelectorAll(".footer-icon").forEach((icon) => {
-            if (icon.getAttribute("href") === currentPath) {
-                icon.classList.add("active");
+        document.querySelectorAll('.footer-icon').forEach(icon => {
+            if (icon.getAttribute('href') === currentPath) {
+                icon.classList.add('active');
             } else {
-                icon.classList.remove("active");
+                icon.classList.remove('active');
             }
         });
 
-        document.querySelector("header").style.display = 'none';
-        document.querySelector(".btn-container").style.display = 'none';
+        document.querySelector('header').style.display = 'none';
+        document.querySelector('.btn-container').style.display = 'none';
 
         // Menu Toggle
-        document.getElementById("menu-toggle").addEventListener("click", () => {
-            document.getElementById("menu-overlay").classList.toggle("active");
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            document.getElementById('menu-overlay').classList.toggle('active');
         });
 
         // Logout
-        document.getElementById("logout-btn").addEventListener("click", () => {
+        document.getElementById('logout-btn').addEventListener('click', () => {
             localStorage.clear();
-            window.location.href = "/";
+            window.location.href = '/';
         });
     }
 };

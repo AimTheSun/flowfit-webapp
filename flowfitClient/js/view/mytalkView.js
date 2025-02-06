@@ -4,13 +4,19 @@ export class ChatView {
     }
 
     render() {
+        // Remove headers duplicados se já existirem
+        const existingHeader = document.querySelector('.mypage-header');
+        if (existingHeader) {
+            existingHeader.remove();
+        }
+
         this.container.innerHTML = `
             <!-- Header -->
             <header class="mypage-header">
                 <h1 class="app-logo">CORPO CULTO</h1>
                 <div class="menu-icon" id="menu-toggle">&#9776;</div>
             </header>
-
+    
             <!-- Conteúdo Principal -->
             <section class="chat-container">
                 <div class="role-selection">
@@ -23,21 +29,7 @@ export class ChatView {
                     <button id="send-message-btn">Enviar</button>
                 </div>
             </section>
-
-            <!-- Menu Overlay -->
-            <div class="menu-overlay" id="menu-overlay">
-                <nav class="menu-nav">
-                    <a href="/mypage" class="menu-item">Home</a>
-                    <a href="/qrcode" class="menu-item">CheckIn</a>
-                    <a href="/mytraining" class="menu-item">Dicas de Treino</a>
-                    <a href="/mynutrition" class="menu-item">Dicas de Nutrição</a>
-                    <a href="/mytalk" class="menu-item">Chat Bot</a>
-                </nav>
-                <div class="menu-footer">
-                    <button id="logout-btn" class="menu-logout">Logout</button>
-                </div>
-            </div>
-
+    
             <!-- Footer -->
             <footer class="mypage-footer">
                 <nav>
@@ -73,8 +65,12 @@ export class ChatView {
     }
 
     bindRoleSelection(callback) {
-        document.getElementById('personal-trainer').addEventListener('click', () => callback('personal_trainer'));
-        document.getElementById('nutritionist').addEventListener('click', () => callback('nutritionist'));
+        document
+            .getElementById('personal-trainer')
+            .addEventListener('click', () => callback('personal_trainer'));
+        document
+            .getElementById('nutritionist')
+            .addEventListener('click', () => callback('nutritionist'));
     }
 
     bindSendMessage(callback) {
@@ -88,7 +84,7 @@ export class ChatView {
             }
         };
         button.addEventListener('click', sendMessage);
-        input.addEventListener('keypress', (event) => {
+        input.addEventListener('keypress', event => {
             if (event.key === 'Enter') sendMessage();
         });
     }
@@ -103,13 +99,15 @@ export class ChatView {
     }
 
     setActiveRole(role) {
-        document.querySelectorAll('.role-btn').forEach((button) => button.classList.remove('active'));
-        document.getElementById(role === 'personal_trainer' ? 'personal-trainer' : 'nutritionist').classList.add('active');
+        document.querySelectorAll('.role-btn').forEach(button => button.classList.remove('active'));
+        document
+            .getElementById(role === 'personal_trainer' ? 'personal-trainer' : 'nutritionist')
+            .classList.add('active');
     }
 
     updateFooterActiveIcon() {
         const currentPath = window.location.pathname;
-        document.querySelectorAll('.footer-icon').forEach((icon) => {
+        document.querySelectorAll('.footer-icon').forEach(icon => {
             if (icon.getAttribute('href') === currentPath) {
                 icon.classList.add('active');
             } else {
