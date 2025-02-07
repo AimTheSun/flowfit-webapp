@@ -38,11 +38,11 @@ The development of this project was not without its challenges. The main difficu
 
 ### Backend Setup
 1. Clone the repository.
-2. Navigate to the `sb-fitflow` directory.
-3. Build and run the Spring Boot application using Maven:
+2. Navigate to the `backend-flowfit` directory.
+4. Build and run the Spring Boot application using Maven:
    ```bash
    mvn spring-boot:run
-4. Ensure MySQL is running and configure the database in the application.properties file.
+5. Ensure MySQL is running and configure the database in the application.properties file.
 
 ### Frontend Setup
 1. Navigate to the `flowfitClient` and `flowfitAdmin` directories.
