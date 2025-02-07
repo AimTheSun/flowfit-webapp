@@ -12,6 +12,14 @@
     --color-input-bg: #333;
     --color-input-border: #555;
     --color-input-focus: #f90;
+
+    /* New variables for the widget */
+    --widget-bg: var(--color-background);
+    --widget-text: var(--color-text);
+    --widget-accent: var(--color-header);
+    --widget-progress: var(--color-header);
+    --widget-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --widget-border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Global Styles */
@@ -29,8 +37,8 @@ body {
     text-align: center;
     display: flex;
     flex-direction: column;
-    height: auto; /* Alterado */
-    min-height: 100vh; /* Mantém responsivo */
+    height: auto;
+    min-height: 80vh;
     justify-content: flex-end;
 }
 
@@ -41,13 +49,13 @@ body {
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
-    color: white; /* Teste com branco para garantir contraste */
-    position: absolute; /* Coloca no topo da página */
+    color: white;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 10; /* Garante que esteja acima de outros elementos */
-    background: rgba(0, 0, 0, 0.5); /* Opcional: fundo transparente para destaque */
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
 }
 
 /* Main Container */
@@ -62,8 +70,8 @@ body {
 
 /* Logo */
 .logo {
-    color: var(--color-header); /* Garante contraste */
-    font-size: 2rem; /* Ajusta tamanho */
+    color: var(--color-header);
+    font-size: 2rem;
 }
 /* Background GIF */
 .background-gif {
@@ -83,8 +91,8 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Alinha ao centro */
-    height: auto; /* Permite que cresça conforme o conteúdo */
+    justify-content: center;
+    height: auto;
     color: var(--color-text);
     text-align: center;
     z-index: 1;
@@ -120,6 +128,7 @@ body {
     color: var(--color-text);
     border-radius: 8px;
     margin-bottom: 5px;
+    margin-top: 550px;
 }
 
 /* Carousel Indicators */
@@ -416,6 +425,7 @@ input.success {
     border-radius: 5px;
     overflow: hidden;
     margin-top: 10px;
+    margin: 10px;
 }
 
 .goal-bar-inner {
@@ -554,7 +564,7 @@ nav {
     width: 90%;
     height: 3px;
     background-color: var(--color-header);
-    margin: 10% auto;
+    margin: 10px auto;
     border-radius: 2px;
 }
 
@@ -721,6 +731,39 @@ nav {
 /* QR CODE */
 .qrcode-container {
     margin-top: 10%;
+    margin-bottom: 200px;
+}
+
+.qrcode img {
+    width: 70%; /* Tamanho base flexível */
+    max-width: 200px; /* Define um tamanho máximo */
+    height: auto; /* Mantém a proporção */
+    display: block; /* Garante centralização */
+    margin: 0 auto; /* Centraliza dentro do container */
+}
+
+/* 📱 Para telas pequenas (Mobile First) */
+@media (max-width: 480px) {
+    .qrcode img {
+        width: 65%; /* Aumenta um pouco */
+        max-width: 180px;
+    }
+}
+
+/* 📏 Para tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+    .qrcode img {
+        width: 60%;
+        max-width: 220px; /* Um pouco maior para tablets */
+    }
+}
+
+/* 💻 Para desktops */
+@media (min-width: 769px) {
+    .qrcode img {
+        width: 50%;
+        max-width: 250px; /* Maior no desktop */
+    }
 }
 
 .qrcode-container h2,
@@ -926,6 +969,128 @@ nav {
     background-color: var(--color-button-hover);
 }
 
+/* === Mobile First (Padrão) === */
+.clients-gym-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background: var(--widget-bg);
+    border-radius: 20px;
+    box-shadow: var(--widget-shadow);
+    border: var(--widget-border);
+    max-width: 300px; /* Adjusted size */
+    margin: 0 auto; /* Center the widget */
+    transition: transform 0.3s ease;
+}
+
+.clients-gym-container:hover {
+    transform: translateY(-5px);
+}
+
+.title {
+    font-size: 1.2rem;
+    color: var(--widget-text);
+    margin-top: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.pulse-container {
+    position: relative;
+    width: 100px; /* Smaller size */
+    height: 100px; /* Smaller size */
+}
+
+.client-progress {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+        var(--widget-progress) 0% calc(var(--percentage) * 1%),
+        transparent calc(var(--percentage) * 1%) 100%
+    );
+    mask: radial-gradient(transparent 55%, #000 56%);
+    -webkit-mask: radial-gradient(transparent 55%, #000 56%);
+    animation: pulse 2s infinite;
+}
+
+.client-count-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--widget-bg);
+    width: 80px; /* Smaller size */
+    height: 80px; /* Smaller size */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.client-count {
+    text-align: center;
+    color: var(--widget-text);
+}
+
+.number {
+    font-size: 1.8rem; /* Adjusted size */
+    font-weight: 700;
+    display: block;
+    line-height: 1;
+    background: linear-gradient(45deg, var(--widget-accent), #00ccff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(255, 153, 0, 0.3));
+}
+
+.label {
+    font-size: 0.7rem; /* Adjusted size */
+    color: rgba(255, 255, 255, 0.8);
+    display: block;
+    margin-top: 4px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (min-width: 1024px) {
+    .pulse-container {
+        width: 120px; /* Adjusted size */
+        height: 120px; /* Adjusted size */
+    }
+
+    .client-count-wrapper {
+        width: 100px; /* Adjusted size */
+        height: 100px; /* Adjusted size */
+    }
+
+    .number {
+        font-size: 2rem; /* Adjusted size */
+    }
+
+    .title {
+        font-size: 1.4rem; /* Adjusted size */
+    }
+}
 @media (min-width: 961px) {
     .qrcode-container {
         margin-top: 0 !important;

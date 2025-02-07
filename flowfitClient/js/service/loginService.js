@@ -1,16 +1,12 @@
 export const loginService = {
     async sendLoginData(data) {
-        // Encripta a password antes de enviar
-        const encryptedPassword = CryptoJS.SHA256(data.password).toString();
-
         try {
-            // Atualiza a URL para o localhost
-            const response = await fetch('http://localhost:50005/clients/login', {
+            const response = await fetch('http://localhost:8080/clients/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ ...data, password: encryptedPassword })
+                body: JSON.stringify(data) // Envia os dados já criptografados
             });
 
             if (!response.ok) {
@@ -20,10 +16,10 @@ export const loginService = {
             }
 
             const result = await response.json();
-            return result; // Retorna os dados de sucesso (ex: token)
+            return result;
         } catch (error) {
             console.error('Erro no Login:', error.message);
-            throw new Error('Erro no login, por favor tente mais tarde.'); // Mensagem amigável
+            throw new Error('Erro no login, por favor tente mais tarde.');
         }
     }
 };

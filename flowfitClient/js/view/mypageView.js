@@ -1,9 +1,15 @@
+import { clientGymService } from '../service/clientGymService.js';
+
 export const mypageView = {
-    render(userName, monthlyGoalValue) {
-        const totalGoal = 20; // Objetivo total (por exemplo, 20 pontos)
-        const progressPercentage = Math.min((monthlyGoalValue / totalGoal) * 100, 100); // Calcula o progresso em %
+    async render(userName, monthlyGoalValue) {
+        const totalGoal = 20; // Total goal (e.g., 20 points)
+        const progressPercentage = Math.min((monthlyGoalValue / totalGoal) * 100, 100); // Calculate progress percentage
 
         const main = document.querySelector('main');
+
+        // Fetch the client count asynchronously
+        const clientCount = await clientGymService.getClientsInGym();
+
         main.innerHTML = `
         <!-- Header -->
         <header class="mypage-header">
@@ -20,41 +26,17 @@ export const mypageView = {
                 <p class="goal-text">Objetivo do Mês</p>
                 <p class="goal-value">${monthlyGoalValue} / ${totalGoal}</p>
                 <div class="goal-bar">
-                    <div class="goal-bar-inner" style="width: ${progressPercentage}%;"></div> <!-- Progresso dinâmico -->
+                    <div class="goal-bar-inner" style="width: ${progressPercentage}%;"></div> <!-- Dynamic progress -->
                 </div>
             </div>
-
-            <!-- Linha de Separação -->
-            <div class="section-divider"></div>
-
-           <!-- Bloco de Treino -->
-<div class="training-grid">
-    <div class="training-card" onclick="window.location.href='/mytraining'">
-        <div class="training-image-wrapper">
-            <img src="images/deadlift.jpg" alt="Treino de Braços" class="training-image">
-            <div class="training-overlay">
-                <p class="training-title">Treino de Força</p>
-            </div>
-        </div>
-    </div>    <div class="training-card" onclick="window.location.href='/mynutrition'">
-        <div class="training-image-wrapper">
-            <img src="images/alimentos.jpg" alt="Dicas de Alimentação" class="training-image">
-            <div class="training-overlay">
-                <p class="training-title">Alimentação - Boost Nutricional</p>
-            </div>
-        </div>
-    </div>    <div class="training-card" >
-        <div class="training-image-wrapper">
-            <img src="images/cycling.jpg" alt="Dicas de Cardio" class="training-image">
-            <div class="training-overlay">
-                <p class="training-title">Cycling</p>
-            </div>
-        </div>
-    </div>    <div class="training-card">
-        <div class="training-image-wrapper">
-            <img src="images/pump.jpg" alt="Mobilidade e Yoga" class="training-image">
-            <div class="training-overlay">
-                <p class="training-title">Pump</p>
+<!-- Clients in Gym Widget -->
+<div class="clients-gym-container">
+    <div class="pulse-container">
+        <div class="client-progress"></div>
+        <div class="client-count-wrapper">
+            <div id="clients-count" class="client-count">
+                <span class="number">${clientCount}</span>
+                <span class="label">Pessoas no ginásio neste momento    </span>
             </div>
         </div>
     </div>
@@ -62,6 +44,43 @@ export const mypageView = {
 
             <!-- Linha de Separação -->
             <div class="section-divider"></div>
+
+            <!-- Bloco de Treino -->
+            <div class="training-grid">
+                <div class="training-card" onclick="window.location.href='/mytraining'">
+                    <div class="training-image-wrapper">
+                        <img src="images/deadlift.jpg" alt="Treino de Braços" class="training-image">
+                        <div class="training-overlay">
+                            <p class="training-title">Treino de Força</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="training-card" onclick="window.location.href='/mynutrition'">
+                    <div class="training-image-wrapper">
+                        <img src="images/alimentos.jpg" alt="Dicas de Alimentação" class="training-image">
+                        <div class="training-overlay">
+                            <p class="training-title">Alimentação - Boost Nutricional</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="training-card" >
+                    <div class="training-image-wrapper">
+                        <img src="images/cycling.jpg" alt="Dicas de Cardio" class="training-image">
+                        <div class="training-overlay">
+                            <p class="training-title">Cycling</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="training-card">
+                    <div class="training-image-wrapper">
+                        <img src="images/pump.jpg" alt="Mobilidade e Yoga" class="training-image">
+                        <div class="training-overlay">
+                            <p class="training-title">Pump</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
         </section>
 
         <!-- Menu Overlay -->
@@ -96,9 +115,8 @@ export const mypageView = {
         </footer>
         `;
 
-        // Define o ícone ativo com base na rota atual
+        // Define active icon based on the current route
         const currentPath = window.location.pathname;
-
         document.querySelectorAll('.footer-icon').forEach(icon => {
             if (icon.getAttribute('href') === currentPath) {
                 icon.classList.add('active');

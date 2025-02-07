@@ -1,21 +1,16 @@
+// service/registerService.js (corrigido)
 export const registerService = {
     async sendRegistrationData(data) {
-        // Encripta a password antes de enviar
-        const encryptedPassword = CryptoJS.SHA256(data.password).toString();
+        // A senha já foi encriptada no controlador, não é necessário encriptar novamente
+        console.log('Dados enviados para registo (simulados):', data);
 
-        console.log('Dados enviados para registo (simulados):', {
-            ...data,
-            password: encryptedPassword
-        });
-
-        // Código comentado para quando o backend estiver ligado
         try {
-            const response = await fetch('http://localhost:50005/clients/register', {
+            const response = await fetch('http://localhost:8080/clients/createClient', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ ...data, password: encryptedPassword })
+                body: JSON.stringify(data) // Envia os dados sem alterações
             });
 
             if (!response.ok) {
@@ -25,10 +20,10 @@ export const registerService = {
             }
 
             const result = await response.json();
-            return result; // Retorna os dados de sucesso
+            return result;
         } catch (error) {
             console.error('Erro no Registo:', error.message);
-            throw new Error('Erro no registo, por favor tente mais tarde.'); // Mensagem amigável
+            throw new Error('Erro no registo, por favor tente mais tarde.');
         }
     }
 };
