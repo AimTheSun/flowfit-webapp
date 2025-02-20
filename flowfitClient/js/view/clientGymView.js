@@ -7,7 +7,7 @@ export class ClientGymView {
         // Accept clientsInGym as a parameter
         this.container.innerHTML = `
           <header class="mypage-header">
-            <h1 class="app-logo">CORPO CULTO</h1>
+            <h1 class="app-logo">FlowFit</h1>
             <div class="menu-icon" id="menu-toggle">&#9776;</div>
         </header>
             <section class="clients-gym-container">

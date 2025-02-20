@@ -1,16 +1,16 @@
 export const qrcodeView = {
     render(qrCodeUrl, dynamicUrl, status) {
-        const main = document.querySelector("main");
+        const main = document.querySelector('main');
 
         // Esconde os botões de login e registo
-        document.querySelector("header").style.display = 'none';
-        const btnContainer = document.querySelector(".btn-container");
-        if (btnContainer) btnContainer.style.display = "none";
+        document.querySelector('header').style.display = 'none';
+        const btnContainer = document.querySelector('.btn-container');
+        if (btnContainer) btnContainer.style.display = 'none';
 
         main.innerHTML = `
             <!-- Header -->
             <header class="mypage-header">
-                <h1 class="app-logo">CORPO CULTO</h1>
+                <h1 class="app-logo">FlowFit</h1>
                 <div class="menu-icon" id="menu-toggle">&#9776;</div>
             </header>
 
@@ -51,19 +51,19 @@ export const qrcodeView = {
         `;
 
         // Adiciona evento ao menu hamburger
-        document.getElementById("menu-toggle").addEventListener("click", () => {
-            document.getElementById("menu-overlay").classList.toggle("active");
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            document.getElementById('menu-overlay').classList.toggle('active');
         });
 
         // Adiciona evento ao botão de logout
-        document.getElementById("logout-btn").addEventListener("click", () => {
+        document.getElementById('logout-btn').addEventListener('click', () => {
             localStorage.clear();
-            window.location.href = "/";
+            window.location.href = '/';
         });
     },
 
     showMessage(message, isError = false) {
-        const main = document.querySelector("main");
+        const main = document.querySelector('main');
         main.innerHTML = `
             <div class="message ${isError ? 'error' : 'success'}">
                 <p>${message}</p>

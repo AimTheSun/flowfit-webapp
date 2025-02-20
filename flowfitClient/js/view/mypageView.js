@@ -13,7 +13,7 @@ export const mypageView = {
         main.innerHTML = `
         <!-- Header -->
         <header class="mypage-header">
-            <h1 class="app-logo">CORPO CULTO</h1>
+            <h1 class="app-logo">FlowFit</h1>
             <div class="menu-icon" id="menu-toggle">&#9776;</div>
         </header>
 
@@ -36,7 +36,7 @@ export const mypageView = {
         <div class="client-count-wrapper">
             <div id="clients-count" class="client-count">
                 <span class="number">${clientCount}</span>
-                <span class="label">Pessoas no ginásio neste momento    </span>
+                <span class="label">Pessoas no ginásio neste momento</span>
             </div>
         </div>
     </div>

@@ -1,23 +1,25 @@
 export const mytrainingView = {
     render(trainings) {
-        const main = document.querySelector("main");
+        const main = document.querySelector('main');
 
-        document.querySelector("header").style.display = 'none';
+        document.querySelector('header').style.display = 'none';
 
         // Esconde os botões de login e registo
-        const btnContainer = document.querySelector(".btn-container");
-        if (btnContainer) btnContainer.style.display = "none";
+        const btnContainer = document.querySelector('.btn-container');
+        if (btnContainer) btnContainer.style.display = 'none';
 
         main.innerHTML = `
             <!-- Header -->
             <header class="mypage-header">
-                <h1 class="app-logo">CORPO CULTO</h1>
+                <h1 class="app-logo">FlowFit</h1>
                 <div class="menu-icon" id="menu-toggle">&#9776;</div>
             </header>
 
             <!-- Conteúdo Principal -->
             <section class="mytraining-content">
-                ${trainings.map((training, index) => `
+                ${trainings
+                    .map(
+                        (training, index) => `
                     <div class="training-block">
     <div class="training-image">
         <img src="${training.image}" alt="${training.title}">
@@ -30,7 +32,9 @@ export const mytrainingView = {
         </div>
     </div>
 </div>
-                `).join('')}
+                `
+                    )
+                    .join('')}
             </section>
 
             <!-- Menu Overlay -->
@@ -59,14 +63,14 @@ export const mytrainingView = {
         `;
 
         // Adiciona evento ao menu hamburger
-        document.getElementById("menu-toggle").addEventListener("click", () => {
-            document.getElementById("menu-overlay").classList.toggle("active");
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            document.getElementById('menu-overlay').classList.toggle('active');
         });
 
         // Adiciona evento ao botão de logout
-        document.getElementById("logout-btn").addEventListener("click", () => {
+        document.getElementById('logout-btn').addEventListener('click', () => {
             localStorage.clear();
-            window.location.href = "/";
+            window.location.href = '/';
         });
     }
 };
