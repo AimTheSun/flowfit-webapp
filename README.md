@@ -58,3 +58,32 @@ This deployment strategy leverages AWS services (RDS, EC2, and S3) to provide a 
 
 ---
 
+## Challenges Faced During Development
+
+The development of FlowFit was both intense and rewarding. Some key challenges included:
+
+- **Limited Development Time:** The initial version was built in just 72 hours for a final bootcamp presentation.
+- **AWS Deployment Complexities:** Integrating and configuring two applications (frontend and backend) on AWS required extensive troubleshooting, especially regarding CORS and connectivity between services.
+- **Frontend-Backend Integration:** Tight deadlines meant some parts of the system had less time for fine-tuning, leading to minor integration challenges.
+- **New Feature Implementation:** Adding new features such as real-time gym occupancy monitoring and an integrated Chat Bot under time constraints was challenging but ultimately enhanced the platform.
+
+Despite these challenges, the team’s efforts were recognized with the **Best Application** award, proving that even under immense pressure, great results are achievable.
+
+---
+
+## How to Run Locally
+
+### Prerequisites
+- Java (for backend)
+- MySQL (for database)
+- Node.js (for frontend, if applicable)
+
+### Backend Setup
+1. Clone the repository.
+2. Navigate to the `backend-flowfit` directory.
+3. Build and run the Spring Boot application using Maven:
+   ```bash
+   mvn spring-boot:run
+   ```
+4. Ensure MySQL is running and configure the database in the `application.properties` file.
+
