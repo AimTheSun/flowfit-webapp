@@ -87,3 +87,25 @@ Despite these challenges, the team’s efforts were recognized with the **Best A
    ```
 4. Ensure MySQL is running and configure the database in the `application.properties` file.
 
+### Frontend Setup
+1. Navigate to the `flowfitClient` and `flowfitAdmin` directories.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+
+### Register and Login
+1. **Register:** Open the app and navigate to the registration page. Fill in the required details (e.g., name, email, password) and submit the form to create a new account.
+2. **Login:** After registration, log in using your credentials on the login page.
+
+Once logged in, users will have access to all the features of the platform. Admin users will see client management, dashboards, and reports, while clients will have access to personalized features, including the Chat Bot and real-time gym occupancy monitoring.
+
+---
+
+Enjoy exploring FlowFit and feel free to contribute to further improvements!
+
+
