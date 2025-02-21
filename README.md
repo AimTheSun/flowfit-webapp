@@ -1,6 +1,18 @@
 # FlowFit
 
-FlowFit is a comprehensive platform developed to address the specific needs of a gym in Vagos. Designed to optimize gym operations and improve both client and operational experiences, FlowFit combines modern technologies and a user-friendly interface to deliver efficient, data-driven solutions. The app now includes new features such as real-time monitoring of gym occupancy and an integrated Chat Bot with specialized roles.
+FlowFit is a comprehensive platform developed to address the specific needs of a gym. Designed to optimize gym operations and improve both client and operational experiences, FlowFit combines modern technologies and a user-friendly interface to deliver efficient, data-driven solutions. The app now includes new features such as real-time monitoring of gym occupancy and an integrated Chat Bot with specialized roles.
+
+---
+
+## Technologies Used
+
+- **Frontend:** HTML, CSS, JavaScript (with Vite for optimized builds)
+- **Backend:** Java, Spring Boot, Spring MVC, JPA, Hibernate, REST APIs, Maven, Lombok, Embedded Tomcat
+- **Database:** MySQL (hosted on AWS RDS)
+- **Authentication:** JWT
+- **Testing:** Postman
+- **Design:** Modern animations, gradients, and progress bars
+- **Deployment:** AWS (EC2 for backend, S3 for frontend)
 
 ---
 
@@ -25,18 +37,6 @@ FlowFit is a comprehensive platform developed to address the specific needs of a
    - Performed end-to-end testing to verify that users can seamlessly interact with the system—from accessing the frontend and performing logins/registrations to the backend correctly processing requests.
 
 This deployment strategy leverages AWS services (RDS, EC2, and S3) to provide a robust, scalable, and secure environment for our application.
-
----
-
-## Technologies Used
-
-- **Frontend:** HTML, CSS, JavaScript (with Vite for optimized builds)
-- **Backend:** Java, Spring Boot, Spring MVC, JPA, Hibernate, REST APIs, Maven, Lombok, Embedded Tomcat
-- **Database:** MySQL (hosted on AWS RDS)
-- **Authentication:** JWT
-- **Testing:** Postman
-- **Design:** Modern animations, gradients, and progress bars
-- **Deployment:** AWS (EC2 for backend, S3 for frontend)
 
 ---
 
@@ -65,7 +65,6 @@ The development of FlowFit was both intense and rewarding. Some key challenges i
 - **Limited Development Time:** The initial version was built in just 72 hours for a final bootcamp presentation.
 - **AWS Deployment Complexities:** Integrating and configuring two applications (frontend and backend) on AWS required extensive troubleshooting, especially regarding CORS and connectivity between services.
 - **Frontend-Backend Integration:** Tight deadlines meant some parts of the system had less time for fine-tuning, leading to minor integration challenges.
-- **New Feature Implementation:** Adding new features such as real-time gym occupancy monitoring and an integrated Chat Bot under time constraints was challenging but ultimately enhanced the platform.
 
 Despite these challenges, the team’s efforts were recognized with the **Best Application** award, proving that even under immense pressure, great results are achievable.
 
