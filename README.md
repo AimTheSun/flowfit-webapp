@@ -40,3 +40,21 @@ This deployment strategy leverages AWS services (RDS, EC2, and S3) to provide a 
 
 ---
 
+## Key Features
+
+- **Client Management System:** Efficient management of gym clients.
+- **Intuitive Dashboard:** An easy-to-use dashboard for gym operations.
+- **QR Code Check-In:** Fast and secure check-in process for clients.
+- **Client Gym Monitoring:** Real-time view of the number of clients in the gym.
+- **Integrated Chat Bot:** A chat feature offering personalized advice with two distinct roles—Personal Trainer and Nutritionist.
+
+---
+
+## Impact
+
+- **Increased Operational Efficiency:** Streamlined processes for both staff and clients.
+- **Enhanced Client Engagement:** Real-time data and interactive features keep clients informed and involved.
+- **Data-Driven Decision Making:** Comprehensive analytics to support better management decisions.
+
+---
+
