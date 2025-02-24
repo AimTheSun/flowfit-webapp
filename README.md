@@ -1,4 +1,4 @@
-# FlowFit
+# FlowFit | flowfit.pt/
 
 FlowFit is a comprehensive platform developed to address the specific needs of a gym. Designed to optimize gym operations and improve both client and operational experiences, FlowFit combines modern technologies and a user-friendly interface to deliver efficient, data-driven solutions. The app now includes new features such as real-time monitoring of gym occupancy and an integrated Chat Bot with specialized roles.
 
